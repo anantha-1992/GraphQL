@@ -99,8 +99,45 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "query{\r\n    users(limit:1){\r\n        name\r\n        id\r\n        todos(limit:4,order_by:{created_at:desc}){\r\n            id\r\n            title\r\n        }\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n\r\n}",
+						"query": "query{\r\n    users(limit:3){\r\n        name\r\n        id\r\n        todos(limit:4,order_by:{created_at:desc}){\r\n            id\r\n            title\r\n        }\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n\r\n}",
 						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://hasura.io/learn/graphql",
+					"protocol": "https",
+					"host": [
+						"hasura",
+						"io"
+					],
+					"path": [
+						"learn",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query with variables",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDY4ODM1MGY5Y2I2MjhhYjU0ZWVkODQwNSJ9LCJuaWNrbmFtZSI6ImFuYW50aGFzcmlkaGFyMTMwODkyIiwibmFtZSI6ImFuYW50aGFzcmlkaGFyMTMwODkyQGdtYWlsLmNvbSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci9kMjg1MjE1NDE5MGYxYTA4MjQ2ZjI4ZDkzN2ExMGQ2Mz9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmFuLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDI1LTA3LTI1VDA5OjQwOjEwLjIwMFoiLCJpc3MiOiJodHRwczovL2dyYXBocWwtdHV0b3JpYWxzLmF1dGgwLmNvbS8iLCJhdWQiOiJQMzhxbkZvMWxGQVFKcnprdW4tLXdFenFsalZOR2NXVyIsInN1YiI6ImF1dGgwfDY4ODM1MGY5Y2I2MjhhYjU0ZWVkODQwNSIsImlhdCI6MTc1MzgwMzU3MCwiZXhwIjoxNzUzODM5NTcwLCJzaWQiOiJNRWxITVZfcTVJaWFiT1ljdEZBSUZBTThlZ3JTLXlQciIsImF0X2hhc2giOiJkWU5VLURZMXlKYVM5aDJ2aG1iRXJRIiwibm9uY2UiOiJiYXdSSjc5el9GZHkuUGViUW55WUtmS0RCUzhrflNFUSJ9.hC2D0V6KYhZdhLnF7u_uBXbUk3E8B1_GhsApqYRGAM_RLm5Cwf8MXliTXv6NRRZoPkctJyQF6g_ulEilQobLGZVRd2LY_16kdDdRC8B4i78HNQOX0433twSQZcarirIpikEEExbzcvpRvzNg2Coi1K6LjU7SVkDOBT7-eEhxEaTtTsDXo1KeVMB-lOkyFW-CIY2uxti61k0DCdmkpIF9qwQrIoORjUhxi5sbz7TBkqshRM0-qkRqNcewpojS5FTivTTmFT4nNQTQiZ_0O_J0u8SJeCtpnuGF0ihQVzmIVAQ4zr5BhAsc5Bfu8cUJYb0WNAJQhbDFjlRyJqJJ-JlFmA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query($limit:Int!){\r\n    todos(limit:$limit){\r\n        id\r\n        title\r\n    }\r\n}",
+						"variables": "{\r\n    \"limit\":2\r\n}"
 					}
 				},
 				"url": {
